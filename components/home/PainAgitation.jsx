@@ -17,7 +17,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 }
 const PainAgitation = () => {
-  const conRef = useRef();
+  const painRef = useRef();
 
   const painPoints = [
     {
@@ -44,8 +44,7 @@ const PainAgitation = () => {
     });
 
     const scroll = ScrollTrigger.create({
-      trigger: conRef.current,
-      markers: true,
+      trigger: painRef.current,
       start: "top 80%",
     });
 
@@ -59,7 +58,7 @@ const PainAgitation = () => {
   });
 
   return (
-    <section ref={conRef} className="sticky container py-10 flex flex-col">
+    <section ref={painRef} className="sticky container py-10 flex flex-col">
       {/* Top  */}
       <h3 className="p-split font-medium text-lg">Pain & Agitation</h3>
 
@@ -68,7 +67,7 @@ const PainAgitation = () => {
           Why Your Problem Keeps <br /> Coming Back?
         </h2>
 
-        <p className="p-split">
+        <p className="">
           Are you tired of dealing with the same health problem again and again?
           You take medicines, feel better for a while, but the issue keeps
           coming back. This cycle of temporary relief can be frustrating,

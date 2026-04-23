@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import Solutions01 from "@/public/solution01.png";
 import Solutions02 from "@/public/solution02.png";
 import Solutions03 from "@/public/solution03.png";
@@ -9,6 +9,8 @@ import Solutions04 from "@/public/solution04.png";
 import Link from "next/link";
 
 const Solution = () => {
+  const SolutionRef = useRef();
+
   const IntroduceYou = [
     {
       name: "Long-term relief from recurring problems",
@@ -27,8 +29,35 @@ const Solution = () => {
       url: Solutions03,
     },
   ];
+
+  const outcomes = [
+    {
+      head: "95%",
+      line1: "Satisfaction ",
+      line2: "Rate",
+    },
+    {
+      head: "7+",
+      line1: "Years of ",
+      line2: "Experience",
+    },
+    {
+      head: "25k",
+      line1: "Trusted by ",
+      line2: "Patients",
+    },
+    {
+      head: "4.9",
+      line1: "Patient ",
+      line2: "Experience Rating",
+    },
+  ];
+
   return (
-    <section className="container h-fit w-full bg-(--bg-dark) py-20 text-(--text-white)">
+    <section
+      ref={SolutionRef}
+      className="container h-fit w-full bg-(--bg-dark) py-20 text-(--text-white)"
+    >
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-20 xl:gap-5">
         {/* left  */}
         <div className="w-full flex flex-col gap-10">
@@ -43,30 +72,14 @@ const Solution = () => {
           </div>
 
           <div className="w-full  grid grid-cols-2 md:grid-cols-4 gap-5">
-            <div className="flex flex-col gap-2">
-              <span className="text-6xl font-semibold">95%</span>
-              <span className="uppercase">
-                Satisfaction <br /> Rate
-              </span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-6xl font-semibold">7+</span>
-              <span className="uppercase">
-                Years of <br /> Experience
-              </span>
-            </div>
-            <div className="flex flex-col gap-2 ">
-              <span className="text-6xl font-semibold">25k</span>
-              <span className="uppercase">
-                Trusted by <br /> Patients
-              </span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-6xl font-semibold">4.9</span>
-              <span className="uppercase">
-                Patient Experience <br /> Rating
-              </span>
-            </div>
+            {outcomes?.map((item, index) => (
+              <div key={item.head} className="flex flex-col gap-2">
+                <span className="text-6xl font-semibold ">{item.head}</span>
+                <span className="uppercase ">
+                  {item.line1} <br /> {item.line2}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -74,9 +87,9 @@ const Solution = () => {
         <div className="h-full w-full flex flex-col gap-10">
           <div className="flex flex-col gap-5">
             <div className="flex flex-col gap1">
-              <h3 className="font-medium text-lg">Introduce Us</h3>
+              <h3 className="font-medium text-lg ">Introduce Us</h3>
 
-              <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
+              <h2 className="text-3xl md:text-5xl font-semibold leading-tight ">
                 Here’s How We Fix It
               </h2>
             </div>
