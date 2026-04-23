@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --bg-mint: #edfbed;
+  --bg-white: #ffffff;
+  --bg-dark: #000b09;
+
+  --text-white: #edfbed;
+  --text-dark: #2b3a2a;
+  --text-light: #5b6b5b;
+
+  --primary-forest: #2d5a27;
+  --secondary-sage: #8eb69b;
+  --accent-clay: #edb780;
+
+  --card-white: #ffffff;
+}
+
+/* ✅ BASE LAYER */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--bg-mint);
+    color: var(--text-dark);
+    overflow-x: hiddenh;
+  }
+}
+
+/* ✅ COMPONENTS LAYER */
+@layer components {
+  .container {
+    @apply px-2 xl:px-10 mx-auto max-w-7xl;
+  }
+
+  .btn {
+    @apply w-fit font-medium rounded-full px-6 py-2 transition-all duration-300 ease-in-out hover:scale-105;
+  }
+
+  input,
+  textarea {
+    outline: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: var(--accent-clay);
+  }
+}
